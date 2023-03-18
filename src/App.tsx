@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import Alert from './components/Alert';
-import Button from './components/Button';
+import Button from './components/Button/Button';
+import Like from './components/Like';
 import ListGroup from './components/ListGroup';
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
 				onSelectItem={handleSelectItem}
 			/>
 			<Button onClick={handleClickButton}>Mon bouton</Button>
+			<Like onClick={() => console.log('clicked')} />
 		</div>
 	);
 };
