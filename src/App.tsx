@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Cart from './components/Cart';
 import ExpandableText from './ExpandableText';
 import Form from './components/Form';
+import FormWithState from './components/FormWithState';
 
 const App = () => {
 	let items = ['Paris', 'Rome', 'New York', 'San Francisco', 'London'];
@@ -95,7 +96,7 @@ const App = () => {
 			<p>{pizza.toppings}</p>
 			<button onClick={handleClickPizza}>add toppings</button>
 			{cart.items.map((item) => (
-				<p>
+				<p key={item.id}>
 					{item.title} {item.quantity}
 				</p>
 			))}
@@ -106,7 +107,10 @@ const App = () => {
 				DFGODGDFGODGDFGODGDFGODGDFGODGDFGODG DFGODGDFGODGDFGODG
 				DFGODGDFGODGDFGODGDFGODG
 			</ExpandableText>
+			Form with refs
 			<Form />
+			Form with states
+			<FormWithState />
 		</div>
 	);
 };
