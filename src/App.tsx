@@ -10,6 +10,7 @@ import Cart from './components/Cart';
 import ExpandableText from './ExpandableText';
 import Form from './components/Form';
 import FormWithState from './components/FormWithState';
+import ExpenseTracker from './components/ExpenseTracker/ExpenseTracker';
 
 const App = () => {
 	let items = ['Paris', 'Rome', 'New York', 'San Francisco', 'London'];
@@ -111,6 +112,8 @@ const App = () => {
 			<Form />
 			Form with states
 			<FormWithState />
+			My Expense tracker
+			<ExpenseTracker />
 		</div>
 	);
 };
