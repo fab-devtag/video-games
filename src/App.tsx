@@ -11,8 +11,38 @@ import ExpandableText from './ExpandableText';
 import Form from './components/Form';
 import FormWithState from './components/FormWithState';
 import ExpenseTracker from './components/ExpenseTracker/ExpenseTracker';
+import ExpenseList from './components/ExpenseTrackerSolution/ExpenseList';
+import ExpenseFilter from './components/ExpenseTrackerSolution/ExpenseFilter';
+import ExpenseForm from './components/ExpenseTrackerSolution/ExpenseForm';
+import categories from './components/ExpenseTrackerSolution/categories';
 
 const App = () => {
+	const [expenses, setExpenses] = useState([
+		{
+			id: 1,
+			description: 'oeroezir',
+			amount: 2,
+			category: 'Groceries',
+		},
+		{
+			id: 2,
+			description: 'fsfs',
+			amount: 5,
+			category: 'Entertainement',
+		},
+		{
+			id: 3,
+			description: 'jljknkl',
+			amount: 7,
+			category: 'Utilities',
+		},
+	]);
+
+	const [selectedCategory, setSelectedCategory] = useState('');
+	const visibleExpenses = selectedCategory
+		? expenses.filter((e) => e.category === selectedCategory)
+		: expenses;
+
 	let items = ['Paris', 'Rome', 'New York', 'San Francisco', 'London'];
 	const [cartItems, setCartItems] = useState(['Product1', 'Product2']);
 
@@ -114,6 +144,23 @@ const App = () => {
 			<FormWithState />
 			My Expense tracker
 			<ExpenseTracker />
+			Solution Expense Tracker
+			<div className="mb-3">
+				<ExpenseForm
+					onSubmit={(expense) =>
+						setExpenses([...expenses, { ...expense, id: expenses.length + 1 }])
+					}
+				/>
+			</div>
+			<div className="mb-3">
+				<ExpenseFilter
+					onSelectCategory={(category) => setSelectedCategory(category)}
+				/>
+			</div>
+			<ExpenseList
+				expenses={visibleExpenses}
+				onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+			/>
 		</div>
 	);
 };
