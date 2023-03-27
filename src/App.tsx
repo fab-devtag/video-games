@@ -15,6 +15,7 @@ import ExpenseList from './components/ExpenseTrackerSolution/ExpenseList';
 import ExpenseFilter from './components/ExpenseTrackerSolution/ExpenseFilter';
 import ExpenseForm from './components/ExpenseTrackerSolution/ExpenseForm';
 import categories from './components/ExpenseTrackerSolution/categories';
+import AppBackendModule from './AppBackendModule';
 
 const App = () => {
 	const [expenses, setExpenses] = useState([
@@ -161,6 +162,7 @@ const App = () => {
 				expenses={visibleExpenses}
 				onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
 			/>
+			<AppBackendModule />
 		</div>
 	);
 };
