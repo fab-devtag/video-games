@@ -14,7 +14,7 @@ const GameCard = ({
 }: Props) => {
 	let imgUrl = getCroppedImageUrl(background_image);
 	return (
-		<Card borderRadius={10} overflow="hidden">
+		<Card>
 			<Image src={imgUrl} />
 			<CardBody>
 				<Heading fontSize="2xl">{name}</Heading>
